@@ -1,46 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+
 <html>
     <head>
-        <title>윤동주-자화상</title>
+        <title>Django Girls blog</title>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" type="text/css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
 
     <body>
-        <h2>자화상 - 윤동주</h2>
-        <hr size="10" align="center" noshade="noshade"></hr>
-  		<center><h4>< 자화상 ></h4></center>
+        <div class="page-header">
+            <h1><a href="/">Django Girls blog</a></h1>
+        </div>
         
-        <section>
-            <center><p><b><ins>윤동주</ins></b></p></center>
-            <hr width=50% align="center"></hr>
-            <p>산모퉁이를 돌아 논가 외딴 우물을 홀로 찾아가선 가만히 들여다봅니다.</p>
-            <p>우물 속에는 달이 밝고 구름이 흐르고 하늘이 펼치고 파아란 바람이 불고 가을이 있습니다.</p>
-            <p>그리고 한 사나이가 있습니다.</p>
-            <p>어쩐지 그 사나이가 미워져 돌아갑니다.</p>
-            <p>돌아가다 생각하니 그 사나이가 가엾어집니다. 도로 가 들여다보니 사나이는 그대로 있습니다.</p>
-            <p>다시 그 사나이가 미워져 돌아갑니다.</p>
-            <p>돌아가다 생각하니 그 사나이가 그리워집니다.</p>
-            <p>우물 속에는 달이 밝고 구름이 흐르고 하늘이 펼치고 파아란 바람이 불고 가을이 있고 추억처럼 사나이가 있습니다.</p>
-        </section>
+        <div class="content container">
+            <div class="row">
+                <div class="'col-md-8">
+                    {% for post in posts %}
+                        <div class="post">
+                            <div class="date">
+                                <p>published: {{ post.published_date }}</p>
+                            </div>
+                            <h1><a href="">{{ post.title }}</a></h1>
+                            <p>{{ post.text|linebreaksbr }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
 
-        <aside>
-            <h2>윤동주 시인의 다른 시</h2>
-            <ul>
-                <li>서시</li>
-                <li>자화상</li>
-                <li>눈오는 지도</li>
-                <li>새로운 길</li>
-                <li>길</li>
-                <li>별 헤는 밤</li>
-                <li>쉽게 씌어진 시</li>
-                <li>참회록</li>
-                <li>못 자는 밤</li>
-                <li>비오는 밤</li>
-                <li>소낙비</li>
-            </ul>
-        </article>
-
-        <footer>
-            <hr></hr>
-            &copy;웹서비스프로그래밍 &reg;2020
-        </footer>
     </body>
 </html>
