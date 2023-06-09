@@ -21,7 +21,6 @@ class ChangeDetection:
             'password' : self.password,
         })
         res.raise_for_status()
-        
         self.token = res.json()['token'] # 토큰 저장
         print(self.token)
 
@@ -71,5 +70,6 @@ class ChangeDetection:
             'published_date' : now,
         }
         file = {'image' : open(full_path, 'rb')}
+
         res = requests.post(self.HOST + '/api_root/post/', data = data, files = file, headers=headers)
         print(res)
