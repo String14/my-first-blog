@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'rest_framework',
+    'rest_framework.authtoken', #added
 ]
 
 MIDDLEWARE = [
@@ -128,3 +130,15 @@ TIME_ZONE = 'Asia/Seoul'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+
+# 환경 파일에 미디어 경로 추가
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        # only admin
+        # 'rest_framework.permissions.IsAdminUser',
+    ],
+    'PAGE_SIZE' : 10
+}

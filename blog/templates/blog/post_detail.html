@@ -15,5 +15,6 @@
         {% endif %}
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
+        <img src="{{ post.image.url }}" class="rounded intruder-image-list" alt="{{ post.title }}">
     </div>
 {% endblock %}
